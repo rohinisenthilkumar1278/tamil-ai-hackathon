@@ -1,6 +1,5 @@
 import streamlit as st
 import google.generativeai as genai
-from reportlab.pdfgen import canvas
 import streamlit.components.v1 as components
 
 #stop
@@ -498,7 +497,6 @@ st.markdown("""
 <div class="stat-row">
     <div class="stat-box"><div class="stat-num">6</div><div class="stat-lbl">AI Tools</div></div>
     <div class="stat-box"><div class="stat-num">∞</div><div class="stat-lbl">Generations</div></div>
-    <div class="stat-box"><div class="stat-num">PDF</div><div class="stat-lbl">Export</div></div>
     <div class="stat-box"><div class="stat-num">🔊</div><div class="stat-lbl">Voice</div></div>
 </div>
 """, unsafe_allow_html=True)
@@ -543,41 +541,40 @@ def speak_text(text):
     </script>
     """, height=0)
 def sentence_gen(word):
-    r = model.generate_content(f"Convert the word into Tamil if needed and generate 5 Tamil sentences.\nInput: {word}\nOutput ONLY Tamil sentences.")
-    return r.text
+    
+        r = model.generate_content(f"Convert the word into Tamil if needed and generate 5 Tamil sentences.\nInput: {word}\nOutput ONLY Tamil sentences.")
+        return r.text
+
 
 def dialogue_gen(situation):
-    r = model.generate_content(f"Create a natural Tamil dialogue.\nSituation: {situation}\nOutput ONLY Tamil dialogue.")
-    return r.text
+
+        r = model.generate_content(f"Create a natural Tamil dialogue.\nSituation: {situation}\nOutput ONLY Tamil dialogue.")
+        return r.text
 
 def grammar_gen(word, grammar):
-    r = model.generate_content(f"Generate Tamil sentences using {word} in {grammar} tense.\nOutput ONLY Tamil sentences.")
-    return r.text
+
+        r = model.generate_content(f"Generate Tamil sentences using {word} in {grammar} tense.\nOutput ONLY Tamil sentences.")
+        return r.text
+    
 
 def essay_gen(topic):
-    r = model.generate_content(f"Write a detailed Tamil essay on:\nTopic: {topic}\nRules:\n- Output only Tamil\n- Around 300 words\n- Include introduction, body and conclusion\n- Suitable for students")
-    return r.text
+    
+        r = model.generate_content(f"Write a detailed Tamil essay on:\nTopic: {topic}\nRules:\n- Output only Tamil\n- Around 300 words\n- Include introduction, body and conclusion\n- Suitable for students")
+        return r.text
+    
+    
 
-def create_pdf(text):
-    file_name = "output.pdf"
-    c = canvas.Canvas(file_name)
-    y = 800
-    for line in text.split("\n"):
-        c.drawString(50, y, line[:100])
-        y -= 20
-        if y < 50:
-            c.showPage()
-            y = 800
-    c.save()
-    return file_name
 
 def chatbot(user_input):
-    r = model.generate_content(f"You are an AI Tamil Learning Assistant.\nRules:\n- Reply in Tamil\n- Help with Tamil learning\n- Answer grammar questions\n- Explain meanings\n- Be friendly\nUser: {user_input}")
-    return r.text
+
+        r = model.generate_content(f"You are an AI Tamil Learning Assistant.\nRules:\n- Reply in Tamil\n- Help with Tamil learning\n- Answer grammar questions\n- Explain meanings\n- Be friendly\nUser: {user_input}")
+        return r.text
 
 def grammar_explanation(sentence):
-    r = model.generate_content(f"Analyze the following Tamil sentence.\nSentence: {sentence}\nExplain in simple format:\n1. Subject\n2. Verb\n3. Tense\n4. Meaning in English\n5. Grammar Explanation\nKeep explanation simple for students.\nOutput in English.")
-    return r.text
+
+        r = model.generate_content(f"Analyze the following Tamil sentence.\nSentence: {sentence}\nExplain in simple format:\n1. Subject\n2. Verb\n3. Tense\n4. Meaning in English\n5. Grammar Explanation\nKeep explanation simple for students.\nOutput in English.")
+        return r.text
+
 
 # ─── PAGES ────────────────────────────────────────────────────────────────────
 
@@ -677,16 +674,8 @@ elif menu == "Essay Generator":
 
     if st.session_state.result_essay:
         render_output(st.session_state.result_essay, "Tamil Essay")
-        col_s, col_d, _ = st.columns([1, 1.3, 4])
-        with col_s:
-            if st.button("🔊 Speak", key="eg_speak"):
-                speak_text(st.session_state.result_essay)
-        with col_d:
-            pdf_file = create_pdf(st.session_state.result_essay)
-            with open(pdf_file, "rb") as f:
-                st.download_button("📄 Download PDF", data=f,
-                                   file_name="Tamil_Essay.pdf",
-                                   mime="application/pdf")
+        if st.button("🔊 Speak", key="eg_speak"):
+            speak_text(st.session_state.result_essay)
 
 # ── Chatbot ────────────────────────────────────────────────────────────────────
 elif menu == "Chatbot":
