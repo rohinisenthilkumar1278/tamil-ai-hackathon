@@ -510,24 +510,55 @@ def speak_text(text):
         }}
     </script>
     """, height=0)
-
+    
 def sentence_gen(word):
-    return safe_generate(f"Convert the word into Tamil if needed and generate 5 Tamil sentences.\nInput: {word}\nOutput ONLY Tamil sentences.")
+    return safe_generate(f"""You are a Tamil language teacher.
+If the input is a valid word (English or Tamil), generate 5 Tamil sentences using it.
+If the input is random/invalid/gibberish, respond with exactly: "Invalid input. Please enter a meaningful word."
+Input: {word}
+Output ONLY Tamil sentences OR the error message. No extra explanation.""")
 
 def dialogue_gen(situation):
-    return safe_generate(f"Create a natural Tamil dialogue.\nSituation: {situation}\nOutput ONLY Tamil dialogue.")
+    return safe_generate(f"""You are a Tamil language teacher.
+If the input is a valid situation or context, create a natural Tamil dialogue for it.
+If the input is random/invalid/gibberish, respond with exactly: "Invalid input. Please describe a valid situation."
+Situation: {situation}
+Output ONLY Tamil dialogue OR the error message. No extra explanation.""")
 
 def grammar_gen(word, grammar):
-    return safe_generate(f"Generate Tamil sentences using {word} in {grammar} tense.\nOutput ONLY Tamil sentences.")
+    return safe_generate(f"""You are a Tamil language teacher.
+If the input is a valid word (English or Tamil), generate 5 Tamil sentences using it in {grammar} tense.
+If the input is random/invalid/gibberish, respond with exactly: "Invalid input. Please enter a meaningful word."
+Input: {word}
+Output ONLY Tamil sentences OR the error message. No extra explanation.""")
 
 def essay_gen(topic):
-    return safe_generate(f"Write a detailed Tamil essay on:\nTopic: {topic}\nRules:\n- Output only Tamil\n- Around 300 words\n- Include introduction, body and conclusion\n- Suitable for students")
+    return safe_generate(f"""You are a Tamil language teacher.
+If the input is a valid topic, write a 300-word Tamil essay with introduction, body and conclusion.
+If the input is random/invalid/gibberish, respond with exactly: "Invalid input. Please enter a valid essay topic."
+Topic: {topic}
+Output ONLY Tamil essay OR the error message. No extra explanation.""")
 
 def chatbot(user_input):
-    return safe_generate(f"You are an AI Tamil Learning Assistant.\nRules:\n- Reply in Tamil\n- Help with Tamil learning\n- Answer grammar questions\n- Explain meanings\n- Be friendly\nUser: {user_input}")
+    return safe_generate(f"""You are an AI Tamil Learning Assistant.
+Rules:
+- Reply in Tamil
+- Help with Tamil learning, grammar questions, word meanings
+- Be friendly
+- If input is random/gibberish, politely ask user to enter a valid question in Tamil or English
+User: {user_input}""")
 
 def grammar_explanation(sentence):
-    return safe_generate(f"Analyze the following Tamil sentence.\nSentence: {sentence}\nExplain in simple format:\n1. Subject\n2. Verb\n3. Tense\n4. Meaning in English\n5. Grammar Explanation\nKeep explanation simple for students.\nOutput in English.")
+    return safe_generate(f"""You are a Tamil language teacher.
+If the input is a valid Tamil sentence, explain it in simple English format:
+1. Subject
+2. Verb
+3. Tense
+4. Meaning in English
+5. Grammar Explanation
+If the input is random/invalid/not Tamil, respond with exactly: "Invalid input. Please enter a valid Tamil sentence."
+Sentence: {sentence}
+Output ONLY the explanation OR the error message. Keep it simple for students.""")
 
 # ─── PAGES ────────────────────────────────────────────────────────────────────
 
