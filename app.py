@@ -2,7 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 import streamlit.components.v1 as components
 import time
-
+import random
 st.set_page_config(
     page_title="Tamil AI — Learning Assistant",
     page_icon="🪔",
@@ -397,9 +397,25 @@ for k, v in defaults.items():
         st.session_state[k] = v
 
 # ─── API ───────────────────────────────────────────────────────────────────────
-genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-model = genai.GenerativeModel("gemini-2.5-flash")
+KEYS = [
+    st.secrets["GEMINI_API_KEY_1"],
+    st.secrets["GEMINI_API_KEY_2"],
+    st.secrets["GEMINI_API_KEY_3"],
+]
 
+def safe_generate(prompt):
+    keys = KEYS.copy()
+    random.shuffle(keys)
+    for key in keys:
+        try:
+            time.sleep(0.5)
+            genai.configure(api_key=key)
+            m = genai.GenerativeModel("gemini-2.5-flash")
+            r = m.generate_content(prompt)
+            return r.text
+        except Exception:
+            continue
+    return "⚠️ All API keys exhausted. Please try again later."
 # ─── HERO ──────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="hero-wrap">
@@ -494,14 +510,6 @@ def speak_text(text):
         }}
     </script>
     """, height=0)
-
-def safe_generate(prompt):
-    try:
-        time.sleep(0.5)
-        r = model.generate_content(prompt)
-        return r.text
-    except Exception:
-        return "⚠️ API limit reached. Please wait a minute and try again."
 
 def sentence_gen(word):
     return safe_generate(f"Convert the word into Tamil if needed and generate 5 Tamil sentences.\nInput: {word}\nOutput ONLY Tamil sentences.")
