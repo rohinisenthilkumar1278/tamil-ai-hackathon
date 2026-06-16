@@ -1,144 +1,212 @@
- # Tamil AI Learning Assistant
+# Tamil AI Learning Assistant
 
-## Live Demo
-[Paste your Streamlit Cloud URL here]
+# Overview :
 
-## Overview
-Tamil AI Learning Assistant is an AI-powered platform that helps users learn Tamil through translation, dialogue generation, grammar assistance, and interactive AI conversations.
+Tamil AI Learning Assistant is an AI-powered educational platform that helps users learn, practice, and understand the Tamil language through interactive Generative AI tools.
 
-## Technologies Used
-- Python
-- Streamlit
-- Google Gemini API
+The platform combines artificial intelligence with language education to provide personalized learning experiences, enabling users to improve their Tamil writing, grammar, communication, and comprehension skills in an engaging and accessible way.
 
-## Run Locally
 
-1. Install requirements:
+
+# Problem Statement :
+
+Learning Tamil effectively can be challenging for students and beginners due to limited personalized guidance, lack of interactive practice tools, and difficulties in understanding grammar and sentence structures.
+
+Traditional learning resources often focus on theory rather than practical usage and real-time feedback.
+
+Tamil AI Learning Assistant addresses these challenges by providing intelligent AI-powered assistance that helps users generate content, practice communication, understand grammar, and improve language proficiency instantly.
+
+
+
+# Solution :
+
+Tamil AI Learning Assistant leverages Google's Gemini AI model to generate meaningful Tamil content and provide educational support through multiple learning modules.
+
+The platform offers:
+
+1. AI-generated Tamil sentences
+2. Context-based Tamil dialogues
+3. Grammar-focused sentence construction
+4. Tamil essay generation
+5. Intelligent Tamil learning chatbot
+6. Grammar analysis and explanations
+7. Text-to-speech support for pronunciation practice
+
+
+
+# Key Features :
+
+1. Sentence Generator
+
+Generates multiple meaningful Tamil sentences from a user-provided word or topic.
+
+2. Dialogue Generator
+
+Creates natural Tamil conversations for real-world situations and communication practice.
+
+3. Grammar Builder
+
+Generates Tamil sentences using different grammatical structures and tenses.
+
+4. Essay Generator
+
+Produces well-structured Tamil essays suitable for students and learners.
+
+5. Tamil Learning Chatbot
+
+Provides interactive assistance for:
+
+ Tamil language learning
+ Grammar questions
+ Word meanings
+ Conversation practice
+
+6. Grammar Explanation
+
+Analyzes Tamil sentences and explains:
+
+• Subject
+• Verb
+• Tense
+• English Meaning
+• Sentence Structure
+
+7. Text-to-Speech Support
+
+Reads generated Tamil content aloud to improve listening and pronunciation skills.
+
+
+
+# Innovation :
+
+Unlike traditional language-learning applications, Tamil AI Learning Assistant combines multiple learning tools within a single platform and uses Generative AI to create personalized content on demand.
+
+The system acts as a virtual Tamil tutor capable of generating educational content, answering questions, and helping learners understand language concepts interactively.
+
+
+# Technology Stack :
+
+Frontend
+
+• Streamlit
+
+Artificial Intelligence
+
+• Google Gemini API
+
+Programming Language
+
+• Python
+
+Libraries
+
+• streamlit
+• google-generativeai
+• streamlit-components
+
+
+
+# System Workflow :
+
+User Input
+
+↓
+
+Streamlit User Interface
+
+↓
+
+Google Gemini AI
+
+↓
+
+Tamil Content Generation
+
+↓
+
+Output Display / Speech Output
+
+
+
+# Installation and Execution :
+
+Step 1: Install Dependencies
+
 pip install -r requirements.txt
 
-2. Create .streamlit/secrets.toml
+Step 2: Configure API Key
 
-3. Add:
-GEMINI_API_KEY = "YOUR_API_KEY"
+Add your Google Gemini API Key in the application configuration.
 
-4. Run:
-streamlit run app.py
-[10:48 am, 16/06/2026] Rohini: # 🪔 Tamil AI — Learning Assistant
+Step 3: Run the Application
 
-An AI-powered Tamil language learning web application built with Streamlit and Google Gemini AI. Designed to help students and learners master the Tamil language through six intelligent tools.
-
----
-
-## 🌐 Live Demo
-
-🔗 [Click here to try the app](https://tamil-ai-hackathon.streamlit.app)
-
----
-
-## ✨ Features
-
-| Tool | Description |
-|------|-------------|
-| 📝 Sentence Generator | Enter any word and get 5 authentic Tamil sentences |
-| 💬 Dialogue Generator | Describe a situation and get a natural Tamil conversation |
-| 🔤 Grammar Builder | Build Tamil sentences in any tense from a root word |
-| 📄 Essay Generator | Get a full 300-word Tamil essay with intro, body and conclusion |
-| 🤖 Tamil Chatbot | Ask grammar doubts, word meanings or practice Tamil conversation |
-| 🔍 Grammar Explanation | Paste any Tamil sentence and get a full English grammar breakdown |
-
----
-
-## 🛠️ Tech Stack
-
-- *Frontend* — Streamlit (Python)
-- *AI Model* — Google Gemini 2.5 Flash API
-- *Text to Speech* — Web Speech API (Tamil voice ta-IN)
-- *Deployment* — Streamlit Cloud
-
----
-
-## 📱 Device Support
-
-- ✅ Laptop / Desktop
-- ✅ Mobile (responsive UI)
-- ✅ Tablet
-
----
-
-## 🚀 How to Run Locally
-
-### 1. Clone the repository
-bash
-git clone https://github.com/rohinisenthilkumar1278/tamil-ai-hackathon.git
-cd tamil-ai-hackathon
-
-
-### 2. Install dependencies
-bash
-pip install -r requirements.txt
-
-
-### 3. Add your Gemini API key
-
-Create a file at .streamlit/secrets.toml:
-toml
-GEMINI_KEY_1 = "your_gemini_api_key_here"
-GEMINI_KEY_2 = "your_gemini_api_key_here"
-GEMINI_KEY_3 = "your_gemini_api_key_here"
-
-
-Get your free API key at [aistudio.google.com](https://aistudio.google.com)
-
-### 4. Run the app
-bash
 streamlit run app.py
 
+Step 4: Access the Application
 
-Open your browser at http://localhost:8501
+Open:
 
----
-
-## 📦 Requirements
-
-
-streamlit
-google-generativeai
+http://localhost:8501
 
 
----
 
-## 📁 Project Structure
+# Project Structure :
 
-
-tamil-ai-hackathon/
-├── app.py              # Main application file
-├── requirements.txt    # Python dependencies
-├── README.md           # Project documentation
-└── .streamlit/
-    └── secrets.toml    # API keys (not pushed to GitHub)
+Tamil-AI-Learning-Assistant
+│
+├── app.py
+├── requirements.txt
+├── README.md
 
 
----
+# Target Users :
 
-## 🔑 API Key Setup
+1. School Students
+2. College Students
+3. Tamil Language Learners
+4. Teachers and Educators
+5. Beginners Learning Tamil
+6. Self-Learning Enthusiasts
 
-This app uses *Google Gemini API* (free tier).
-- Free tier: 500 requests/day per key
-- App uses 3 API keys with rotation for higher availability
-- Get your free key at [aistudio.google.com](https://aistudio.google.com)
 
----
 
-## 🎯 Hackathon
+# Impact :
 
-- *Event* — DTEC Hackathon 2026
-- *Category* — Learning
-- *Team* — Rohini S
+Tamil AI Learning Assistant helps preserve and promote Tamil language learning through modern AI technology.
 
----
+The platform provides:
 
-## 👩‍💻 Developer
+• Accessible language education
+• Personalized learning experiences
+• Improved writing and communication skills
+• Better grammar understanding
+• Increased learner engagement
 
-*Rohini S*
-B.Tech Information Technology
-Chettinad College of Engineering and Technology, Karur
+
+
+# Future Enhancements :
+
+• Speech-to-Text Tamil Learning
+• Tamil Vocabulary Trainer
+• Interactive Quizzes and Assessments
+• Personalized Learning Progress Tracking
+• Mobile Application Support
+• Multi-language Translation Assistance
+
+
+
+# Project Status :
+
+✅ Completed
+
+All core modules have been successfully designed, developed, integrated, and tested.
+
+
+
+# Conclusion :
+
+Tamil AI Learning Assistant demonstrates how Generative AI can be applied to language education to create engaging, interactive, and effective learning experiences. By combining multiple AI-powered tools into a single platform, the project makes Tamil language learning more accessible, practical, and enjoyable for learners of all levels.
+
+
+
+Developed for DTEC Hackathon 2026.
